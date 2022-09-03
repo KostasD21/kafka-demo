@@ -18,13 +18,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(path = "users")
+    @PostMapping(path = "user")
     public ResponseEntity createUser(@Valid @RequestBody User user) {
         userService.createUser(user);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(path = "users/{id}")
+    @GetMapping(path = "user/{id}")
     public ResponseEntity<Optional<User>> getUser(@PathVariable int id) {
         return ResponseEntity.ok().body(userService.getUser(id));
     }

@@ -1,11 +1,18 @@
 package com.example.kafkademo.listener;
 
+import com.example.kafkademo.service.KafkaStreamsProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MessageListener {
 
-    @KafkaListener(topics = "test-topic", groupId = "foo")
+    private static final Logger logger = LoggerFactory.getLogger(MessageListener.class);
+
+    @KafkaListener(topics = "${kafka.message.topic}", groupId = "foo")
     public void listenGroupFoo(String message) {
-        System.out.println("Received Message in group foo: " + message);
+        logger.info("Received Message in group foo: {}", message);
     }
 }
