@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -36,6 +37,7 @@ public class UserRepositoryTest {
         List<User> users = userRepository.findAll();
 
         assertThat(users.size()).isEqualTo(1);
+        assertEquals(users.get(0).getUsername(), "Zoorlos");
     }
 
     @Test

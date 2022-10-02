@@ -1,6 +1,5 @@
 package com.example.kafkademo.listener;
 
-import com.example.kafkademo.service.KafkaStreamsProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
